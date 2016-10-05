@@ -9,14 +9,17 @@
 import UIKit
 
 import Firebase
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     
     @IBOutlet var nameField: UITextField!
     @IBOutlet var messageField: UITextField!
     @IBOutlet var myTableView:UITableView!
-    
+    var field:UITextField!
+    var point:CGFloat!
     @IBOutlet var rowField: UITextField!
+    
+    var initialFrame:CGRect!
    
     @IBOutlet var updateNameField: UITextField!
     @IBOutlet var updateMessageField: UITextField!
@@ -26,8 +29,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
 
     override func viewDidLoad() {
+
+        
+        initialFrame = self.view.frame
+        point = self.view.center.y - 250;
         
         
+        
+       
         setupDB()
         myTableView.delegate = self;
         myTableView.dataSource = self;
@@ -80,6 +89,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             self.messages.append(snapshot)
             self.myTableView.insertRows(at: [IndexPath(row: self.messages.count-1, section: 0)], with: .middle)
+            self.myTableView.scrollToRow(at: IndexPath(row: self.messages.count-1, section: 0), at: .bottom, animated: true)
 
             print("did add")
         
@@ -105,6 +115,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 self.myTableView.endUpdates()
 
+        })
+        
+        ref.child("data").observe(.childChanged, with: { (snapshot) -> Void in
+            
+            let index = self.getIndex(msg: snapshot)
+            
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            
+            self.myTableView.beginUpdates()
+            self.messages[index] = snapshot
+            self.myTableView.reloadRows(at: [indexPath], with: .left)
+            self.myTableView.endUpdates()
+        
+        
+        
+        
         })
         
     }
@@ -181,6 +208,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.frame = initialFrame
+        textField.resignFirstResponder()
+        return true
+    }
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5, animations: {
+        
+            self.view.center.y = self.point
+        
+        
+        
+        })
+    }
 }
 

@@ -247,6 +247,7 @@
 				TargetAttributes = {
 					DEAF4E821DA52C9E000DC053 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QH78WYZE35;
 						ProvisioningStyle = Automatic;
 					};
 					DEAF4E991DA52C9E000DC053 = {
@@ -590,6 +591,7 @@
 			baseConfigurationReference = F41DA7AAFD262F47DF516A6E /* Pods-firebaseTesting.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QH78WYZE35;
 				INFOPLIST_FILE = firebaseTesting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rohan.firebaseTesting;
@@ -603,6 +605,7 @@
 			baseConfigurationReference = AC6D8CEB84DD1F707E217A40 /* Pods-firebaseTesting.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QH78WYZE35;
 				INFOPLIST_FILE = firebaseTesting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rohan.firebaseTesting;
