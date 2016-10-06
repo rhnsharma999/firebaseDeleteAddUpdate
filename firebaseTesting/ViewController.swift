@@ -30,7 +30,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     override func viewDidLoad() {
 
-        
+        FIRDatabase.database().persistenceEnabled = true
         initialFrame = self.view.frame
         point = self.view.center.y - 250;
         
