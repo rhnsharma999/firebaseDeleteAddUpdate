@@ -7,17 +7,33 @@
 //
 
 import UIKit
-
+import Material
 import Firebase
+import GSMessages
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
+    
+    var rows:Int!
+    
+    var user:String!
+    
+    
+    @IBOutlet var sendMessageView:UIView!
     
     @IBOutlet var nameField: UITextField!
     @IBOutlet var messageField: UITextField!
     @IBOutlet var myTableView:UITableView!
+    
     var field:UITextField!
     var point:CGFloat!
+    var point1:CGFloat!
     @IBOutlet var rowField: UITextField!
+    
+    var decide = false
+
+    var origTable:CGFloat!
+    var chotaTable:CGFloat!
+    
     
     var initialFrame:CGRect!
    
@@ -27,12 +43,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var ref:FIRDatabaseReference!
     var ref_handle:FIRDatabaseHandle!
     
+    
+    
+    
 
     override func viewDidLoad() {
-
+        
         FIRDatabase.database().persistenceEnabled = true
+        
+        checkConnectionState()
+        origTable = self.myTableView.bounds.height
+        
+        
+        print(user)
+      
+        self.myTableView.backgroundColor = .clear
+        
+        
+        sendMessageView.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        messageField.backgroundColor = UIColor.white
+        messageField.delegate = self
+        messageField.placeholder = "Enter Message Here"
+        point1 = self.sendMessageView.center.y
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+
+        
         initialFrame = self.view.frame
-        point = self.view.center.y - 250;
+    //    point = self.sendMessageView.center.y - 250;
         
         
         
@@ -56,6 +93,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        rows = messages.count
         return messages.count
         
     }
@@ -70,9 +109,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print(messages[indexPath.row].key)
         
         cell?.textLabel?.text = some["text"]!
+        cell?.textLabel?.backgroundColor = UIColor.clear
         
         cell?.detailTextLabel?.text = some["name"]!
-        
+        cell?.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+      
         
         return cell!
         
@@ -152,19 +193,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBAction func addData(_ sender: AnyObject) {
         
         
-        let name = self.nameField.text
+     
         let msg = self.messageField.text
+        let some = user
         
-        if let some = name
+        if let some1 = msg
         {
-            if let some1 = msg
-            {
-                self.sendMessage(data: ["name":some,"text":some1])
-                
-            }
+            self.sendMessage(data: ["name":some!,"text":some1])
+            
         }
         
-    
+        
+        self.messageField.text = ""
+        
     }
     
     
@@ -211,16 +252,111 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.frame = initialFrame
         textField.resignFirstResponder()
+        self.sendMessageView.center.y = self.point1
+        self.messageField.resignFirstResponder()
+        self.myTableView.frame.size.height = self.origTable
+        
+        let indexP = IndexPath(row: self.rows-1, section: 0)
+        self.myTableView.scrollToRow(at: indexP, at: .bottom, animated: true)
+
         return true
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.5, animations: {
         
-            self.view.center.y = self.point
-        
-        
-        
+        let indexp = IndexPath(row: rows-1, section: 0)
+        self.myTableView.scrollToRow(at: indexp, at: .bottom, animated: true)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            
+            
+            if(!decide)
+            {
+                point = (self.sendMessageView.center.y - keyboardHeight)
+                self.chotaTable = self.myTableView.bounds.height - keyboardHeight
+                decide = true
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+            
+                
+                let indexP = IndexPath(row: self.rows-1, section: 0)
+                
+            
+                self.myTableView.frame.size.height = self.chotaTable
+                
+                    self.myTableView.scrollToRow(at: indexP, at: .bottom, animated: true)
+                self.sendMessageView.center.y = self.point
+            
+            
+            
+            })
+            
+        }
+    }
+    
+    
+    func showAlert(title:String, msg:String, error:Bool)
+    {
+        if(error)
+        {
+            
+            self.showMessage(msg, type: .error, options: [
+                .animation(.slide),
+                .animationDuration(0.3),
+                .autoHide(false),
+                .height(44.0),
+                .hideOnTap(true),
+                .position(.top),
+                .textAlignment(.center),
+                .textColor(UIColor.white),
+                .textNumberOfLines(0),
+                .textPadding(30.0),
+                
+                ])
+            
+        }
+        else
+        {
+            
+            self.showMessage(msg, type: .success, options: [
+                .animation(.slide),
+                .animationDuration(0.3),
+                .autoHide(true),
+                .autoHideDelay(3.0),
+                .height(44.0),
+                .hideOnTap(true),
+                .position(.top),
+                .textAlignment(.center),
+                .textColor(UIColor.white),
+                .textNumberOfLines(0),
+                .textPadding(30.0)
+                ])
+            
+        }
+    }
+    
+    func checkConnectionState()
+    {
+        let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool , connected {
+                print("Connected")
+                self.showAlert(title: "Success", msg: "Connected to the Realtime Database", error: false)
+            } else {
+                print("Not connected")
+                
+                self.showAlert(title: "Error", msg: "Not Connected to the internet", error: true)
+                
+                
+                
+                
+                
+                
+            }
         })
     }
 }

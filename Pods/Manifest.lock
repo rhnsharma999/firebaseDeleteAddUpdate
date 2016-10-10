@@ -33,11 +33,15 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GSMessages (1.3.1)
+  - Material (2.1.0)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
+  - GSMessages
+  - Material (~> 2.0)
 
 SPEC CHECKSUMS:
   Firebase: 3875e140d77c7572c6d4852faf94144ffcdb0704
@@ -50,7 +54,9 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  GSMessages: 619a1a97d2dec6e22ffc964e9a521765bfe26c02
+  Material: c5c334bd7fa8c0307cb35be143b7c51c5e2c52a7
 
-PODFILE CHECKSUM: 709ff4cccdad63e11c995bc6df6d441f206d03b3
+PODFILE CHECKSUM: 3783104a42249c582e21a7358adc77b20d788028
 
 COCOAPODS: 1.0.1

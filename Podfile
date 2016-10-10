@@ -5,6 +5,8 @@ target 'firebaseTesting' do
 pod 'Firebase'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'Material', '~> 2.0'
+pod ‘GSMessages’
 
 
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
