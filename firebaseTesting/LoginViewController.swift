@@ -56,6 +56,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         
+        FIRDatabase.database().persistenceEnabled = true
         
         self.checkSignedIn()
         
@@ -214,6 +215,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                  
                     if let some = user?.email
                     {
+                        
                         self.toSend = some
                     }
                     self.performSegue(withIdentifier: "login", sender: self)

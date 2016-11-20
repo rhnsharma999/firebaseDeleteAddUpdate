@@ -11,6 +11,7 @@
 		B0222AA2DBA35DC3C739D158 /* Pods_firebaseTestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD1078092B8CE47E1DB4416 /* Pods_firebaseTestingTests.framework */; };
 		DE1A1A321DAA480D00F79B56 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A1A311DAA480D00F79B56 /* Reusable.swift */; };
 		DE1A1A341DAA4CD900F79B56 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A1A331DAA4CD900F79B56 /* ColorExtension.swift */; };
+		DE87A03A1DE1ED350059CC30 /* MyMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87A0391DE1ED350059CC30 /* MyMessagesTableViewController.swift */; };
 		DE8E60FD1DAB7A410038A2DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE8E60FC1DAB7A410038A2DA /* GoogleService-Info.plist */; };
 		DE8E61011DAB99050038A2DA /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE8E61001DAB99050038A2DA /* iPad.storyboard */; };
 		DEAF4E871DA52C9E000DC053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF4E861DA52C9E000DC053 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		CDD1078092B8CE47E1DB4416 /* Pods_firebaseTestingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebaseTestingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE1A1A311DAA480D00F79B56 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		DE1A1A331DAA4CD900F79B56 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		DE87A0391DE1ED350059CC30 /* MyMessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessagesTableViewController.swift; sourceTree = "<group>"; };
 		DE8E60FC1DAB7A410038A2DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE8E61001DAB99050038A2DA /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		DEAF4E831DA52C9E000DC053 /* firebaseTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebaseTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				DEFD51A31DA656BB0090AC51 /* LoginViewController.swift */,
 				DE8E60FC1DAB7A410038A2DA /* GoogleService-Info.plist */,
 				DEAF4E8A1DA52C9E000DC053 /* Main.storyboard */,
+				DE87A0391DE1ED350059CC30 /* MyMessagesTableViewController.swift */,
 				DE8E61001DAB99050038A2DA /* iPad.storyboard */,
 				DEAF4E901DA52C9E000DC053 /* Assets.xcassets */,
 				DEAF4E921DA52C9E000DC053 /* LaunchScreen.storyboard */,
@@ -456,6 +459,7 @@
 			files = (
 				DE1A1A321DAA480D00F79B56 /* Reusable.swift in Sources */,
 				DEFD51A41DA656BB0090AC51 /* LoginViewController.swift in Sources */,
+				DE87A03A1DE1ED350059CC30 /* MyMessagesTableViewController.swift in Sources */,
 				DEAF4E891DA52C9E000DC053 /* ViewController.swift in Sources */,
 				DE1A1A341DAA4CD900F79B56 /* ColorExtension.swift in Sources */,
 				DEAF4E8F1DA52C9E000DC053 /* firebaseTesting.xcdatamodeld in Sources */,

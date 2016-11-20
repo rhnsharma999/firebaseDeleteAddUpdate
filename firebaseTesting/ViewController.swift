@@ -49,7 +49,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     override func viewDidLoad() {
         
-        FIRDatabase.database().persistenceEnabled = true
+        
         
         checkConnectionState()
         origTable = self.myTableView.bounds.height
@@ -179,7 +179,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func sendMessage(data:[String:String])
     {
+        
+        let user = FIRAuth.auth()?.currentUser
+        if let some = user{
+            self.ref.child("userClasses").child(some.uid).childByAutoId().setValue(data["text"])
+          
+            
+        }
         self.ref.child("data").childByAutoId().setValue(data)
+        
+        
+        
     }
     func updateMessage(data:[String:String],key:String)
     {
