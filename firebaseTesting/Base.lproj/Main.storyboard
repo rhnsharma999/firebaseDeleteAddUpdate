@@ -84,9 +84,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="41O-cg-WeI">
-                        <barButtonItem key="rightBarButtonItem" title="My Messages" id="Kfs-4M-XWG">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="Kfs-4M-XWG">
                             <connections>
-                                <segue destination="Mgh-df-w6r" kind="show" id="QY3-Mf-fyy"/>
+                                <segue destination="KJs-hJ-HAy" kind="show" id="BOX-2X-0zs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,6 +99,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="148"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="LrO-az-5fY">
+            <objects>
+                <viewController id="KJs-hJ-HAy" customClass="ProfileViewController" customModule="firebaseTesting" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MiX-66-iOG"/>
+                        <viewControllerLayoutGuide type="bottom" id="dDn-M3-eZ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kIx-oI-kWK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfY-tz-hrH">
+                                <rect key="frame" x="112" y="134" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User's Nam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge6-my-4mN">
+                                <rect key="frame" x="59" y="308" width="272" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rhnsharma999@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-M5-q0g">
+                                <rect key="frame" x="59" y="342" width="272" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgj-zd-qUy">
+                                <rect key="frame" x="138" y="449" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadImage:" destination="KJs-hJ-HAy" eventType="touchUpInside" id="1du-zd-4F4"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Z3-Z3-WVb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="uDq-M5-q0g" id="cWn-lM-g10"/>
+                        <outlet property="nameLable" destination="ge6-my-4mN" id="2XL-kg-AuK"/>
+                        <outlet property="profile_image" destination="tfY-tz-hrH" id="ca7-Hz-Njy"/>
+                        <outlet property="progressBar" destination="1Z3-Z3-WVb" id="Moa-Dd-rjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATp-FN-aX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429.5999999999999" y="147.97601199400302"/>
         </scene>
         <!--My Messages Table View Controller-->
         <scene sceneID="f4O-Xi-bfj">
@@ -135,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gU1-1T-WZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2164" y="139"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Utx-DY-h1w">
@@ -243,7 +302,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IE1-01-ZK6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5lw-Iq-AuZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5lw-Iq-AuZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

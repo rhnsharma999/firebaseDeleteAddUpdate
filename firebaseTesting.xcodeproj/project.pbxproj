@@ -22,6 +22,7 @@
 		DEAF4E941DA52C9E000DC053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAF4E921DA52C9E000DC053 /* LaunchScreen.storyboard */; };
 		DEAF4E9F1DA52C9E000DC053 /* firebaseTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF4E9E1DA52C9E000DC053 /* firebaseTestingTests.swift */; };
 		DEAF4EAA1DA52C9E000DC053 /* firebaseTestingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF4EA91DA52C9E000DC053 /* firebaseTestingUITests.swift */; };
+		DED250BC1DF83809007BFDD8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED250BB1DF83809007BFDD8 /* ProfileViewController.swift */; };
 		DEFD51A41DA656BB0090AC51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD51A31DA656BB0090AC51 /* LoginViewController.swift */; };
 		FB0320B697974827034AA68A /* Pods_firebaseTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747BDB7490F7C7B216A82285 /* Pods_firebaseTesting.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		DEAF4EA51DA52C9E000DC053 /* firebaseTestingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firebaseTestingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAF4EA91DA52C9E000DC053 /* firebaseTestingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseTestingUITests.swift; sourceTree = "<group>"; };
 		DEAF4EAB1DA52C9E000DC053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DED250BB1DF83809007BFDD8 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DEFD51A31DA656BB0090AC51 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DEFD51A81DA6574F0090AC51 /* firebaseTesting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "firebaseTesting-Bridging-Header.h"; sourceTree = "<group>"; };
 		E26858E73ABD23574207B6CA /* Pods-firebaseTestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseTestingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseTestingTests/Pods-firebaseTestingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				DEFD51A31DA656BB0090AC51 /* LoginViewController.swift */,
 				DE8E60FC1DAB7A410038A2DA /* GoogleService-Info.plist */,
 				DEAF4E8A1DA52C9E000DC053 /* Main.storyboard */,
+				DED250BB1DF83809007BFDD8 /* ProfileViewController.swift */,
 				DE87A0391DE1ED350059CC30 /* MyMessagesTableViewController.swift */,
 				DE8E61001DAB99050038A2DA /* iPad.storyboard */,
 				DEAF4E901DA52C9E000DC053 /* Assets.xcassets */,
@@ -463,6 +466,7 @@
 				DEAF4E891DA52C9E000DC053 /* ViewController.swift in Sources */,
 				DE1A1A341DAA4CD900F79B56 /* ColorExtension.swift in Sources */,
 				DEAF4E8F1DA52C9E000DC053 /* firebaseTesting.xcdatamodeld in Sources */,
+				DED250BC1DF83809007BFDD8 /* ProfileViewController.swift in Sources */,
 				DEAF4E871DA52C9E000DC053 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
